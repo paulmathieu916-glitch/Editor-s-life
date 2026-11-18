@@ -1,0 +1,19 @@
+name: Inspect Editors Life ZIP
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Inspect ZIP
+        run: |
+          echo "===== FILES ====="
+          ls -lah
+          echo "===== ZIP CONTENT ====="
+          unzip -l EditorsLife-Android-Project.zip
